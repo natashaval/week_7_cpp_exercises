@@ -27,14 +27,20 @@ class Table
         table = vector< vector<kv_pair> >(size);
     }
 
+    // O(n) only looping over row for key placement (unsorted) + O(1) for hashing
+    // Example: (k,v) mod 10 = (2,2); (12; 12); (3, 9); (3, 3)
+    // Table[2] = [2, 12]
+    // Table[3] = [9, 3]
     void insert(const keyType key, const valType val)
     {
         kv_pair kv{key, val};
         auto &row = table[index(key)];
+        // Average case if all the rows are empty = O(1) hash + O(1) push_back
         if (row.empty())
         {
             row.push_back(kv);
         }
+        // Worst case: if the mod key is already filled = O(1) hash + O(n) check through the loop
         else
         {
             for(auto &row_entry : row)
@@ -49,10 +55,13 @@ class Table
         }
     }
 
+    // O(1) for hashing in table + O(n) for value looping
     valType lookup(const keyType key)
     {
+        // Best case O(1) if directly found the value
         const auto &row = table[index(key)];
 
+        // Worse case O(n) because need to look up the vector inside table[key]
         for (auto &row_entry : row)
         {
             if (row_entry.key == key)

@@ -11,6 +11,9 @@ class BinaryTree
         parent = nullptr;
     }
 
+    // average case O(log n) ? because only traverse half the size
+    // worst case O(n) because need to traverse every single node until the depth
+    // Example: sorted 1-2-3-4-5-6
     void insert(const keyType k, const valType v)
     {
         if(k == key)
@@ -27,6 +30,9 @@ class BinaryTree
         }
     }
 
+    // average case O(log n) because binary search traverse only half of the size
+    // worst case O(n) because there's only linear node
+    // Ex: from 1-9; parent = 9, child = 8,7,6,5,4,3,2,1
     valType lookup(const keyType k)
     {
         if(k == key)

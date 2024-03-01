@@ -21,6 +21,8 @@ class SortedList
      * 
      * @param key 
      * @param value 
+     * 
+     * O(n) for SortedList because iterate over O(n) + insert&shift for existing O(n)
      */
     void insert(const keyType key, const valType value)
     {
@@ -51,6 +53,8 @@ class SortedList
      * 
      * @param key 
      * @return valType 
+     * 
+     * O(log n) because binary search split into 2 each time
      */
     valType lookup(keyType key)
     {

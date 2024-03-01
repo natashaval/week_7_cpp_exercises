@@ -33,6 +33,7 @@ std::vector<T> merge(const std::vector<T> &v1, const std::vector<T> &v2)
     return v_merged;
 }
 
+// O(n log n) for merge sort because it recurse 2 at a time and combine each one (?)
 template<typename T>
 std::vector<T> merge_sort(const std::vector<T> &v)
 {
