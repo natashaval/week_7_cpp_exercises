@@ -1,0 +1,5 @@
+/home/natashaval/week7_exercises/sum_examples/build/CMakeFiles/edit_cache.dir
+/home/natashaval/week7_exercises/sum_examples/build/CMakeFiles/rebuild_cache.dir
+/home/natashaval/week7_exercises/sum_examples/build/source/CMakeFiles/Sum.dir
+/home/natashaval/week7_exercises/sum_examples/build/source/CMakeFiles/edit_cache.dir
+/home/natashaval/week7_exercises/sum_examples/build/source/CMakeFiles/rebuild_cache.dir

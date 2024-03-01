@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Sum.dir/Summation.cpp.o -o ../bin/Sum 

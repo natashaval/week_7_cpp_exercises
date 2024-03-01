@@ -4,7 +4,7 @@
 #include <vector>
 using std::vector;
 
-template<typename FPtype>
+template <typename FPtype>
 FPtype Kahan_sum(const vector<FPtype> &vals)
 {
     FPtype sum = 0;
@@ -21,11 +21,20 @@ FPtype Kahan_sum(const vector<FPtype> &vals)
     return sum;
 }
 
-template<typename T>
+/*
+In this algorithm:
+
+sum is the running total.
+c is the compensation variable, which accumulates small errors in the calculation.
+y is the current input number minus the previous compensation.
+t is the temporary sum of sum and y.
+The Kahan summation algorithm significantly reduces the numerical error compared to the straightforward approach of simply summing the numbers in sequence12. The worst-case error of the Kahan summation algorithm is effectively independent of the number of values being summed, so a large number of values can be summed with an error that only depends on the floating-point precision of the result.*/
+
+template <typename T>
 T trivial_sum(const vector<T> &vals)
 {
     T sum = 0;
-    for(auto &x : vals)
+    for (auto &x : vals)
     {
         sum = sum + x;
     }
