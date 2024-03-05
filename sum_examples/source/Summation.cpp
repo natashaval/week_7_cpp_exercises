@@ -21,8 +21,8 @@ g++ -o ./build/bin/Sum source/Summation.cpp -Iinclude -o1 -ffast-math
 int main()
 {
     std::random_device x{};
-    // std::mt19937_64 rng{x()};
-    std::mt19937_64 rng{2};
+    std::mt19937_64 rng{x()};
+    // std::mt19937_64 rng{2};
     std::uniform_real_distribution<float> dist(0.0, 1.0);
     auto generator = std::bind(dist, rng);
 
@@ -58,6 +58,9 @@ Result Trivial: 500110
 Time taken: 0.00261956
 
 The Kahan result is the same with Trivial result because it ignores the smallest floating point
+ffast-math: The machine code don't take the account c = (t - sum) - y; (?) like ignore some lines
+t = sum + y;
+c = (t - sum) - y; >>>> the machine will read both this machine code is the same, therefore c = 0;
 
 MEANWHILE
 g++ -o ./build/bin/Sum source/Summation.cpp -Iinclude
